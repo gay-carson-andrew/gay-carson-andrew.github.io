@@ -56,7 +56,7 @@
         var right_screen_video = document.querySelector("#right_screen video");
 
         if (navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({video: true, facingMode: "environment" })
+            navigator.mediaDevices.getUserMedia({video: { facingMode: "environment" }})
                 .then(function(stream) {
                     left_screen_video.srcObject = stream;
                     right_screen_video.srcObject = stream;
