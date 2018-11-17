@@ -7,7 +7,10 @@
 	  
     <a-scene embedded arjs>
   	<a-marker preset="hiro">
-            <video id="cityVideo" src="https://cdn.aframe.io/360-video-boilerplate/video/city.mp4">
+            <a-assets>
+  <video id="cityVideo" src="https://cdn.aframe.io/360-video-boilerplate/video/city.mp4">
+ </a-assets>
+ <a-videopshere src="#cityVideo"></a-videosphere>
   	</a-marker>
        <a-marker preset="kanji">
             <a-box position='0 0.5 0' material='color: red;'></a-box>
