@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Stereoscopic Viewer</title>
+        <style>
+            .transparent_container {
+                border: 1px solid rgba(0,0,0,0);
+            }
+            .stereoscopic_left {
+
+            }
+            #left_screen {
+                position:absolute;
+                left: 0px;
+                height:100%;
+                width:50%;
+                overflow: hidden;
+            }
+
+            .stereoscopic_right {
+
+            }
+            #right_screen {
+                position:absolute;
+                right: 0px;
+                height:100%;
+                width:50%;
+                overflow: hidden;
+            }
+
+
+            #left_screen video {
+                min-width: 100%;
+                min-height: 100%;
+            }
+            #right_screen video {
+                min-width: 100%;
+                min-height: 100%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="transparent_container">
+            <div id="left_screen" class="screen">
+                <video class="left_screen_background" autoplay></video>
+            </div>
+            <div id="right_screen" class="screen">
+                <video class="right_screen_brackground"autoplay></video>
+            </div>
+        </div>
+    </body>
+    <script>
+        var left_screen_video = document.querySelector("#left_screen video");
+        var right_screen_video = document.querySelector("#right_screen video");
+
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({video: true, facingMode: "environment" })
+                .then(function(stream) {
+                    left_screen_video.srcObject = stream;
+                    right_screen_video.srcObject = stream;
+                })
+                .catch(function(err0r) {
+                    console.log("Something went wrong!");
+                });
+        }
+    </script>
+</html>
