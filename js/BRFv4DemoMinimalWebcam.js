@@ -187,7 +187,7 @@ function initExample() {
 
     // start the camera stream...
 
-    window.navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480, frameRate: 30 } })
+    window.navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment",width: 640, height: 480, frameRate: 30 } })
       .then(onStreamFetched).catch(function () { alert("No camera available."); });
   }
 
