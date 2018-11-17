@@ -1,0 +1,11 @@
+canvas {
+    left: 0;
+    position: absolute;
+}
+#right_webcam {
+    right: 0;
+    position: absolute;
+}
+body {
+    width:100%;
+}
